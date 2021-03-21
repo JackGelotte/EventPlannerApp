@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EventPlanner.Data;
 using EventPlanner.Models;
 
-namespace EventPlanner.Pages.MyEvents
+namespace EventPlanner.Pages.AttendeeEvents
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace EventPlanner.Pages.MyEvents
             _context = context;
         }
 
-        public IList<Event> Event { get;set; }
+        public IList<AttendeeEvent> AttendeeEvent { get;set; }
 
         public async Task OnGetAsync()
         {
-            Event = await _context.Events.ToListAsync();
+            AttendeeEvent = await _context.AttendeeEvents.Include(e=>e.Event).Where(ae => ae.Attendee.ID == 1).ToListAsync();
         }
     }
 }

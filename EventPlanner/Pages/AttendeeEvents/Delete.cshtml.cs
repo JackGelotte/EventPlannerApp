@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EventPlanner.Data;
 using EventPlanner.Models;
 
-namespace EventPlanner.Pages.MyEvents
+namespace EventPlanner.Pages.AttendeeEvents
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace EventPlanner.Pages.MyEvents
         }
 
         [BindProperty]
-        public Event Event { get; set; }
+        public AttendeeEvent AttendeeEvent { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace EventPlanner.Pages.MyEvents
                 return NotFound();
             }
 
-            Event = await _context.Events.FirstOrDefaultAsync(m => m.ID == id);
+            AttendeeEvent = await _context.AttendeeEvents.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Event == null)
+            if (AttendeeEvent == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace EventPlanner.Pages.MyEvents
                 return NotFound();
             }
 
-            Event = await _context.Events.FindAsync(id);
+            AttendeeEvent = await _context.AttendeeEvents.FindAsync(id);
 
-            if (Event != null)
+            if (AttendeeEvent != null)
             {
-                _context.Events.Remove(Event);
+                _context.AttendeeEvents.Remove(AttendeeEvent);
                 await _context.SaveChangesAsync();
             }
 

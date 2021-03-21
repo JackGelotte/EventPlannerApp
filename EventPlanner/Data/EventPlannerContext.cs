@@ -17,6 +17,7 @@ namespace EventPlanner.Data
         public DbSet<EventPlanner.Models.Event> Events { get; set; }
         public DbSet<EventPlanner.Models.Attendee> Attendees { get; set; }
         public DbSet<EventPlanner.Models.Organizer> Organizers { get; set; }
+        public DbSet<EventPlanner.Models.AttendeeEvent> AttendeeEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

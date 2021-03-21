@@ -1,0 +1,56 @@
+﻿@page
+@model EventPlanner.Pages.AttendeeEvents.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Joined Events</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Organizer
+            </th>
+            <th>
+                Adress
+            </th>
+            <th>
+                Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AttendeeEvent) {
+        <tr>
+
+            <td>
+                @item.Event.Title
+            </td>
+            <td>
+                @item.Event.Description
+            </td>
+            <td>
+               @@item.Event.Organizer.Name
+            </td>
+            <td>
+                @item.Event.Address
+            </td>
+            <td>
+                @item.Event.Date.ToShortDateString()
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.ID">Withdraw</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

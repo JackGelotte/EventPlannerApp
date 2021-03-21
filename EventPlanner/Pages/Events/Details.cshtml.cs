@@ -36,10 +36,5 @@ namespace EventPlanner.Pages.Events
             }
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync()
-        {
-            
-            return Page();
-        }
     }
 }
