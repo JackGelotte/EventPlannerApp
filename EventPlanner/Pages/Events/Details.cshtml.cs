@@ -20,6 +20,8 @@ namespace EventPlanner.Pages.Events
         }
 
         public Event Event { get; set; }
+        public bool IsJoined { get; set; } = false;
+
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,7 +31,12 @@ namespace EventPlanner.Pages.Events
             }
 
             Event = await _context.Events.Include(x=>x.Organizer).Where(e=>e.ID == id).FirstOrDefaultAsync();
+            AttendeeEvent AttendeeEvent = await _context.AttendeeEvents.Where(ae => ae.Attendee.ID == 1 && ae.Event.ID == id).FirstOrDefaultAsync();
 
+            if (AttendeeEvent != default)
+            {
+                IsJoined = true;
+            }
             if (Event == null)
             {
                 return NotFound();
