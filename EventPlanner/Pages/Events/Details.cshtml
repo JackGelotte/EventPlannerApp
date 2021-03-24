@@ -42,7 +42,7 @@
             @Model.Event.Date.ToShortDateString()
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Event.SpotsAvailable)
+            @Html.DisplayNameFor(model => model.Event.SpotsAvailable)?
         </dt>
         @if (Model.Event.SpotsAvailable == true)
         {
@@ -55,13 +55,17 @@
     </dl>
 </div>
 <div>
-    @if (!Model.IsJoined)
+    @if (!Model.IsJoined && Model.Event.SpotsAvailable)
     {
         <a asp-page="../AttendeeEvents/Create" asp-route-id="@Model.Event.ID" class="btn btn-success">Join Event</a>
     }
-    else
+    else if (Model.IsJoined && Model.Event.SpotsAvailable)
     {
-        <a asp-page="../AttendeeEvents/Create" asp-route-id="@Model.Event.ID" class="btn btn-dark disabled">Joined</a>
+        <a asp-page="../AttendeeEvents/Create" asp-route-id="@Model.Event.ID" class="btn btn-secondary disabled">Joined</a>
+    }
+    else if (!Model.Event.SpotsAvailable)
+    {
+        <a asp-page="../AttendeeEvents/Create" asp-route-id="@Model.Event.ID" class="btn btn-danger disabled">No Spots Left</a>
     }
 
     <a asp-page="./Index">Back to List</a>

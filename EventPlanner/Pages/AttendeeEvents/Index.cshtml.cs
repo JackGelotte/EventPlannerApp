@@ -23,7 +23,7 @@ namespace EventPlanner.Pages.AttendeeEvents
 
         public async Task OnGetAsync()
         {
-            AttendeeEvent = await _context.AttendeeEvents.Include(e=>e.Event).Where(ae => ae.Attendee.ID == 1).ToListAsync();
+            AttendeeEvent = await _context.AttendeeEvents.Include(e=>e.Event).ThenInclude(o=>o.Organizer).Where(ae => ae.Attendee.ID == 1).ToListAsync();
         }
     }
 }

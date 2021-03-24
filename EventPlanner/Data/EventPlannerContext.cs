@@ -9,7 +9,7 @@ namespace EventPlanner.Data
 {
     public class EventPlannerContext : DbContext
     {
-        public EventPlannerContext (DbContextOptions<EventPlannerContext> options)
+        public EventPlannerContext(DbContextOptions<EventPlannerContext> options)
             : base(options)
         {
         }
