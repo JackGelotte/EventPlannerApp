@@ -14,7 +14,7 @@ namespace EventPlanner.Models
         public string Address { get; set; }
         public DateTime Date { get; set; }
         [Display(Name="Spots Available")]
-        public bool SpotsAvailable { get; set; } = true;
+        public int SpotsAvailable { get; set; }
         public Organizer Organizer { get; set; }
         public ICollection<AttendeeEvent> AttendeeEvents { get; set; }
     }

@@ -20,6 +20,7 @@ namespace EventPlanner.Pages.Events
         }
 
         public IList<Event> Event { get;set; }
+        public bool HasSpots(Event e) => e.SpotsAvailable > 0;
         public async Task OnGetAsync()
         {
             Event = await _context.Events.Include(e=>e.Organizer).ToListAsync();

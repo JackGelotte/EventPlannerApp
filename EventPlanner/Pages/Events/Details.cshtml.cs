@@ -20,6 +20,7 @@ namespace EventPlanner.Pages.Events
         }
 
         public Event Event { get; set; }
+        public bool HasSpots => Event.SpotsAvailable > 0;
         public bool IsJoined { get; set; } = false;
 
 

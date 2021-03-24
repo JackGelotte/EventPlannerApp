@@ -37,12 +37,12 @@ namespace EventPlanner.Data
 
             var events = new Event[]
             {
-                new Event{Title="Lazy Sunday", Description="Make breakfast, watch tv and do nothing else.", Organizer = organizers[0], Address="Homestreet 52, Earth", Date=DateTime.Parse("2022-05-21"), SpotsAvailable=true,},
-                new Event{Title="Dreamhack", Description="Play games, win stuff.", Organizer = organizers[2], Address="Kungsgatan 3, Jönköping", Date=DateTime.Parse("2021-10-15"), SpotsAvailable=false,},
-                new Event{Title="Programming Fest", Description="Hack your neighbour and stuff.", Organizer = organizers[1], Address="RobinStreet 2, Gothenburg", Date=DateTime.Parse("2021-03-29"), SpotsAvailable=false,},
-                new Event{Title="Music and stuff", Description="Start Spotify and act like a dj.", Organizer = organizers[0], Address="SpasticCorner 9, Paris", Date=DateTime.Parse("2025-01-02"), SpotsAvailable=true,},
-                new Event{Title="E3 Expo", Description="Celebrations and game announcements.", Organizer = organizers[2], Address="GameCity, Los Angeles", Date=DateTime.Parse("2021-12-24"), SpotsAvailable=true,},
-                new Event{Title="Skriva Rapport", Description="Kryp under en sten osv.", Organizer = organizers[0], Address="NopeStreet 13, Madrid", Date=DateTime.Parse("2022-09-09"), SpotsAvailable=false,},
+                new Event{Title="Lazy Sunday", Description="Make breakfast, watch tv and do nothing else.", Organizer = organizers[0], Address="Homestreet 52, Earth", Date=DateTime.Parse("2022-05-21"), SpotsAvailable=20,},
+                new Event{Title="Dreamhack", Description="Play games, win stuff.", Organizer = organizers[2], Address="Kungsgatan 3, Jönköping", Date=DateTime.Parse("2021-10-15"), SpotsAvailable=3,},
+                new Event{Title="Programming Fest", Description="Hack your neighbour and stuff.", Organizer = organizers[1], Address="RobinStreet 2, Gothenburg", Date=DateTime.Parse("2021-03-29"), SpotsAvailable=0,},
+                new Event{Title="Music and stuff", Description="Start Spotify and act like a dj.", Organizer = organizers[0], Address="SpasticCorner 9, Paris", Date=DateTime.Parse("2025-01-02"), SpotsAvailable=42,},
+                new Event{Title="E3 Expo", Description="Celebrations and game announcements.", Organizer = organizers[2], Address="GameCity, Los Angeles", Date=DateTime.Parse("2021-12-24"), SpotsAvailable=59,},
+                new Event{Title="Skriva Rapport", Description="Kryp under en sten osv.", Organizer = organizers[0], Address="NopeStreet 13, Madrid", Date=DateTime.Parse("2022-09-09"), SpotsAvailable=1,},
 
             };
 

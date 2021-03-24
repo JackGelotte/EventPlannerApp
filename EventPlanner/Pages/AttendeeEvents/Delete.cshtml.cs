@@ -45,14 +45,17 @@ namespace EventPlanner.Pages.AttendeeEvents
                 return NotFound();
             }
 
-            AttendeeEvent = await _context.AttendeeEvents.FindAsync(id);
+            AttendeeEvent = await _context.AttendeeEvents.Include(e=>e.Event).Where(ae=>ae.ID==id).FirstOrDefaultAsync();
 
             if (AttendeeEvent != null)
             {
+                AttendeeEvent.Event.SpotsAvailable++;
                 _context.AttendeeEvents.Remove(AttendeeEvent);
+                
+
                 await _context.SaveChangesAsync();
             }
-
+            
             return RedirectToPage("./Index");
         }
     }

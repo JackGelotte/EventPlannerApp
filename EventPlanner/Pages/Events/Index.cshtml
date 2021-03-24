@@ -19,35 +19,36 @@
                 @Html.DisplayNameFor(model => model.Event[0].Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model=>model.Event[0].SpotsAvailable)
+                @Html.DisplayNameFor(model => model.Event[0].SpotsAvailable)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Event) {
-        <tr>
-            <td>
-                @item.Title
-            </td>
-            <td>
-                @item.Description
-            </td>
-            <td>
-                @item.Date.ToShortDateString()
-            </td>
-            @if (item.SpotsAvailable == true)
-            {
-                <td>Yup</td>
-            }
-            else
-            {
-                <td>Nop</td>
-            }
-            <td>
-                <a asp-page="./Details" asp-route-id="@item.ID">More Info</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Event)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+                @if (Model.HasSpots(item))
+                {
+                    <td>Yup</td>
+                }
+                else
+                {
+                    <td>Nop</td>
+                }
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ID">More Info</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
